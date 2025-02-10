@@ -23,10 +23,11 @@ pipeline{
     }
 
     agent{
-        // label{
-        //     label ""
-        //     customWorkspace "${CUSTOM_WORKSPACE}"
-        // }
+        // label 
+        // // label{
+        // //     label ""
+        // //     customWorkspace "${CUSTOM_WORKSPACE}"
+        // // }
     }
 
     stages{
