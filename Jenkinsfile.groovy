@@ -30,6 +30,19 @@ pipeline{
     }
 
     stages{
+        stage('Git Version Check'){
+            when{expression {TEST == 'true'}}
+            steps{
+                script{
+                    {
+                        bat '''
+                        git --version
+                        '''
+                    }
+                }
+            }
+        }
+
         stage('Build Windows'){
             when{expression {BUILD_WINDOWS == 'true'}}
             steps{
