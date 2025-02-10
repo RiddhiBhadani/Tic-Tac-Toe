@@ -5,7 +5,7 @@ def UNITY_INSTALLATION = "C:\\Program Files\\Unity\\Hub\\Editor\\${UNITY_VERSION
 
 pipeline{
     environment{
-        PROJECT_PATH = "${CUSTOM_WORKSPACE}\\${PROJECT_NAME}"
+        PROJECT_PATH = "${CUSTOM_WORKSPACE}"
         /*
         NEXUS_IP_ADDRESS = "" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
         NEXUS_USERNAME = "" //Your Nexus username
