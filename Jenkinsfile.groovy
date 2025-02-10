@@ -9,6 +9,7 @@ pipeline{
         NEXUS_IP_ADDRESS = "http://192.168.2.38:8081" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
         NEXUS_USERNAME = "riddhi" //Your Nexus username
         NEXUS_PASSWORD = credentials('NEXUS_PASSWORD')
+        NEXUS_REPOSITORY = "unity-jenkin-builds"
         /*
         MAC_PASSWORD = credentials('MAC_PASSWORD')
 
@@ -58,7 +59,7 @@ pipeline{
                     env.ARTIFACT_NAME = "Windows_Build_${buildDate}.zip"
 
                     bat '''
-                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip %NEXUS_IP_ADDRESS%/repository/jenkins_unity_test/Windows_Builds/%ARTIFACT_NAME%
+                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip %NEXUS_IP_ADDRESS%/repository/%NEXUS_REPOSITORY%/Windows_Builds/%ARTIFACT_NAME%
                     '''
                 }
             }
