@@ -30,18 +30,17 @@ pipeline{
     }
 
     stages{
-        stage('Git Version Check'){
-            when{expression {TEST == 'true'}}
-            steps{
-                script{
-                    {
-                        bat '''
-                        git --version
-                        '''
-                    }
+        stage('Git Version Check') {
+            when { expression { env.TEST == 'true' } } // Ensure 'TEST' is properly referenced
+            steps {
+                script {
+                    bat '''
+                    git --version
+                    '''
                 }
             }
         }
+
 
         stage('Build Windows'){
             when{expression {BUILD_WINDOWS == 'true'}}
