@@ -59,7 +59,7 @@ pipeline{
                     env.ARTIFACT_NAME = "Windows_Build_${buildDate}.zip"
 
                     bat '''
-                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip %NEXUS_IP_ADDRESS%/repository/%NEXUS_REPOSITORY%/Windows_Builds/%ARTIFACT_NAME%
+                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip %NEXUS_IP_ADDRESS%/repository/%NEXUS_REPOSITORY%/%ARTIFACT_NAME%
                     '''
                 }
             }
