@@ -6,7 +6,7 @@ def UNITY_INSTALLATION = "C:\\Program Files\\Unity\\Hub\\Editor\\${UNITY_VERSION
 pipeline{
     environment{
         PROJECT_PATH = "${CUSTOM_WORKSPACE}"
-        NEXUS_IP_ADDRESS = "http://192.168.2.38:8081" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
+        NEXUS_IP_ADDRESS = "http://localhost:8081" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
         NEXUS_USERNAME = "riddhi" //Your Nexus username
         NEXUS_PASSWORD = credentials('NEXUS_PASSWORD')
         NEXUS_REPOSITORY = "unity-jenkin-builds"
