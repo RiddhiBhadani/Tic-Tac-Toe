@@ -35,7 +35,7 @@ pipeline{
             steps {
                 script {
                     bat '''
-                    git --version
+                    echo "Hello World!"
                     '''
                 }
             }
