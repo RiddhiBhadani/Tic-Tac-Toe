@@ -41,44 +41,44 @@ pipeline{
             }
         }
 
-        stage('Build Windows'){
-            when{expression {BUILD_WINDOWS == 'true'}}
-            steps{
-                script{
-                    withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
-                        bat '''
-                        "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildWindows -logFile -
-                        '''
-                    }
-                }
-            }
-        }
+        // stage('Build Windows'){
+        //     when{expression {BUILD_WINDOWS == 'true'}}
+        //     steps{
+        //         script{
+        //             withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
+        //                 bat '''
+        //                 "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildWindows -logFile -
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
-        stage('Build WebGL'){
-            when{expression {BUILD_WEBGL == 'true'}}
-            steps{
-                script{
-                    withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
-                        bat '''
-                        "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildWebGL -logFile -
-                        '''
-                    }
-                }
-            }
-        }
+        // stage('Build WebGL'){
+        //     when{expression {BUILD_WEBGL == 'true'}}
+        //     steps{
+        //         script{
+        //             withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
+        //                 bat '''
+        //                 "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildWebGL -logFile -
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
-        stage('Build Android APK')
-        {
-            when{expression {BUILD_ANDROID_APK == 'true'}}
-            steps{
-                script{
-                    withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
-                        bat '''
-                        "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildAndroid -buildType APK -logFile -
-                        '''
-                    }
-                }
-            }
-        }
+        // stage('Build Android APK')
+        // {
+        //     when{expression {BUILD_ANDROID_APK == 'true'}}
+        //     steps{
+        //         script{
+        //             withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
+        //                 bat '''
+        //                 "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildAndroid -buildType APK -logFile -
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
