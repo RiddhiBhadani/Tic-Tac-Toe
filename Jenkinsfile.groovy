@@ -25,8 +25,6 @@ pipeline{
 
     agent any
      
-
-
     stages{
         stage('Git Version Check') {
             when { expression {TEST == 'true' } } // Ensure 'TEST' is properly referenced
