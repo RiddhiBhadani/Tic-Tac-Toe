@@ -31,7 +31,7 @@ pipeline{
 
     stages{
         stage('Git Version Check') {
-            when { expression { env.TEST == 'true' } } // Ensure 'TEST' is properly referenced
+            when { expression {TEST == 'true' } } // Ensure 'TEST' is properly referenced
             steps {
                 script {
                     bat '''
