@@ -62,12 +62,12 @@ public class BuildScript
         PlayerSettings.Android.minSdkVersion = (AndroidSdkVersions)25;
         PlayerSettings.Android.targetSdkVersion = (AndroidSdkVersions)34;
 
-        PlayerSettings.Android.keystoreName = Environment.GetEnvironmentVariable("TEST_PROJECT_KEYSTORE_FILE");
+        /*PlayerSettings.Android.keystoreName = Environment.GetEnvironmentVariable("TEST_PROJECT_KEYSTORE_FILE");
         PlayerSettings.Android.keystorePass = Environment.GetEnvironmentVariable("KEYSTORE_PASS");
         PlayerSettings.Android.keyaliasName = Environment.GetEnvironmentVariable("ALIAS_NAME");
         PlayerSettings.Android.keyaliasPass = Environment.GetEnvironmentVariable("ALIAS_PASS");
         PlayerSettings.Android.bundleVersionCode = Int32.Parse(Environment.GetEnvironmentVariable("BUILD_NUMBER"));
-        PlayerSettings.Android.useAPKExpansionFiles = (buildType == "AAB") ? true : false;
+        PlayerSettings.Android.useAPKExpansionFiles = (buildType == "AAB") ? true : false;*/
 
         EditorUserBuildSettings.buildAppBundle = (buildType == "AAB") ? true : false;
 
