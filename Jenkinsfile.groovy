@@ -22,13 +22,13 @@ pipeline{
         MAC_USERNAME = "" //Your mac username*/
     }
 
-    agent{
+    agent any
         // label 
         // // label{
         // //     label ""
         // //     customWorkspace "${CUSTOM_WORKSPACE}"
         // // }
-    }
+    
 
     stages{
         stage('Git Version Check') {
