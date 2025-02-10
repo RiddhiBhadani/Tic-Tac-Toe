@@ -41,7 +41,6 @@ pipeline{
             }
         }
 
-
         stage('Build Windows'){
             when{expression {BUILD_WINDOWS == 'true'}}
             steps{
