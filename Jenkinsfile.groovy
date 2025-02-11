@@ -91,7 +91,7 @@ pipeline{
                 }
             }
         }
-        
+
         stage('Build Android APK')
         {
             when{expression {BUILD_ANDROID_APK == 'true'}}
@@ -127,7 +127,7 @@ pipeline{
                     env.ARTIFACT_NAME = "Android_Build_${buildDate}.aab"
 
                     bat '''
-                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/AndroidAAB/TestGame.aab %NEXUS_IP_ADDRESS%/repository/jenkins_unity_test/AndroidAAB_Builds/%ARTIFACT_NAME%
+                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/AndroidAAB/TestGame.aab %NEXUS_IP_ADDRESS%/repository/jenkins_unity_test/%ARTIFACT_NAME%
                     '''
                 }
             }
