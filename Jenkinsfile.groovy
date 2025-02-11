@@ -78,6 +78,20 @@ pipeline{
             }
         }
 
+        stage('Deploy WebGL'){
+            when{expression {DEPLOY_WEBGL == 'true'}}
+            steps{
+                script{
+                    def buildDate = new Date().format("yyyyMMdd_HHmm")
+                    env.ARTIFACT_NAME = "WebGL_Build_${buildDate}.zip"
+
+                    bat '''
+                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/WebGL.zip %NEXUS_IP_ADDRESS%/repository/jenkins_unity_test/WebGL_Builds/%ARTIFACT_NAME%
+                    '''
+                }
+            }
+        }
+        
         stage('Build Android APK')
         {
             when{expression {BUILD_ANDROID_APK == 'true'}}
@@ -88,6 +102,33 @@ pipeline{
                         "%UNITY_PATH%\\Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildAndroid -buildType APK -logFile -
                         '''
                     }
+                }
+            }
+        }
+
+          stage('Build Android AAB'){
+            when{expression {BUILD_ANDROID_AAB == 'true'}}
+            steps{
+                script{
+                    withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
+                        bat '''
+                        "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath %PROJECT_PATH% -executeMethod BuildScript.BuildAndroid -buildType AAB -logFile -
+                        '''
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Android AAB - Nexus'){
+            when{expression {DEPLOY_ANDROID_AAB == 'true'}}
+            steps{
+                script{
+                    def buildDate = new Date().format("yyyyMMdd_HHmm")
+                    env.ARTIFACT_NAME = "Android_Build_${buildDate}.aab"
+
+                    bat '''
+                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/AndroidAAB/TestGame.aab %NEXUS_IP_ADDRESS%/repository/jenkins_unity_test/AndroidAAB_Builds/%ARTIFACT_NAME%
+                    '''
                 }
             }
         }
