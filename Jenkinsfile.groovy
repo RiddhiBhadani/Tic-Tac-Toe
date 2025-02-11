@@ -32,7 +32,8 @@ pipeline{
             steps {
                 script {
                     bat '''
-                    echo "Hello World!"
+                    echo "Hello World! Riddhi"
+                    echo "$NEXUS_PASSWORD"
                     '''
                 }
             }
