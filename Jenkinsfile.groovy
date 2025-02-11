@@ -6,10 +6,10 @@ def UNITY_INSTALLATION = "C:\\Program Files\\Unity\\Hub\\Editor\\${UNITY_VERSION
 pipeline{
     environment{
         PROJECT_PATH = "${CUSTOM_WORKSPACE}"
-        NEXUS_IP_ADDRESS = "http://localhost:8081" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
-        NEXUS_USERNAME = "riddhi" //Your Nexus username
+        //NEXUS_IP_ADDRESS = "http://localhost:8081" //Your full Nexus IP address+port. Example: http://192.168.1.200:8081
+        //NEXUS_USERNAME = "riddhi" //Your Nexus username
         NEXUS_PASSWORD = credentials('NEXUS_PASSWORD')
-        NEXUS_REPOSITORY = "unity-jenkin-builds"
+        //NEXUS_REPOSITORY = "unity-jenkin-builds"
         /*
         MAC_PASSWORD = credentials('MAC_PASSWORD')
 
@@ -59,7 +59,7 @@ pipeline{
                     env.ARTIFACT_NAME = "Windows_Build_${buildDate}.zip"
 
                     bat '''
-                    curl -u %NEXUS_USERNAME%:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip %NEXUS_IP_ADDRESS%/repository/%NEXUS_REPOSITORY%/%ARTIFACT_NAME%
+                    curl -u riddhi:%NEXUS_PASSWORD% --upload-file %PROJECT_PATH%/Builds/Windows.zip http://localhost:8081/repository/unity-jenkin-builds/%ARTIFACT_NAME%
                     '''
                 }
             }
