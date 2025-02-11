@@ -31,9 +31,9 @@ pipeline{
             when { expression {TEST == 'true' } } // Ensure 'TEST' is properly referenced
             steps {
                 script {
-                    bat '''
-                    echo "Hello World! Riddhi"
-                    echo "$NEXUS_PASSWORD"
+                   bat '''
+                    echo Hello World! Riddhi
+                    echo %NEXUS_PASSWORD%
                     '''
                 }
             }
